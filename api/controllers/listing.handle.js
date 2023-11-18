@@ -122,7 +122,7 @@ export const searchListing = async (req, res, next) => {
       offer === "undefined" ||
       offer === undefined
     ) {
-      offer = false;
+      offer = { $in: [true, false] };
     }
     let limit = req.query.limit || 9;
     let sort = req.query.sort || "createdAt";
