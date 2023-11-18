@@ -25,7 +25,7 @@ export default function Favourites() {
   }, []);
   async function deleteFavourite(id) {
     await axios
-      .post("http://localhost:3000/api/user/delete/favourite", { id: id })
+      .post("/api/user/delete/favourite", { id: id })
       .then(({ data }) => {
         if (data.success === false) {
           console.log(data.message);
