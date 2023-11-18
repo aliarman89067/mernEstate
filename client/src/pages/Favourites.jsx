@@ -12,15 +12,13 @@ export default function Favourites() {
   const [listings, setListings] = useState(null);
   useEffect(() => {
     try {
-      axios
-        .get("http://localhost:3000/api/listing/liked/places")
-        .then(({ data }) => {
-          if (data.success === false) {
-            console.log(data.message);
-            return;
-          }
-          setListings(data);
-        });
+      axios.get("/api/listing/liked/places").then(({ data }) => {
+        if (data.success === false) {
+          console.log(data.message);
+          return;
+        }
+        setListings(data);
+      });
     } catch (error) {
       console.log(error);
     }
